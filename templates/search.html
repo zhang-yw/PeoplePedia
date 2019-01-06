@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" href="{% static 'searchnew.css' %}">
+</head>
+<body>
+   <div id = 'div_large'>
+       <br/><br/>
+    <form method="get" action="/search/" id="table">
+        <div class="line"><label for = "keywords" id = 'left_1'>Keywords</label>
+            <input type="text" id = keywords name="keywords" value=""></div><br/>
+        <div class="line"><label for = "name" id = 'left_2'>Name</label>
+            <input type="text" id = name name="name" value="">
+        <label for = "born">Born</label>
+            <input type="text" id = born name="born" value="">
+        <label for = "died">Died</label>
+            <input type="text" id = died name="died" value="">
+        <label for = "almamater">Alma Mater</label>
+            <input type="text" id = almamater name="almamater" value="">
+        <input type="submit" id = button name="search" value="Search"></div><br/>
+    </form>
+    </div>
+    <div>
+        {% if time %}
+            <label id="time">Time consumed:{{ time }}s</label>
+        {% endif %}
+    </div><br/><br/><br/><br/>
+    <div>
+            {% for item_0 in list_1 %}
+                        <a href="/info/?n={{ item_0.index }}" class = 'person'>{{ item_0.name }}</a>
+                        <ul class="ull">
+                            {% for item_1 in item_0.llist %}
+                                <li>
+                                    {{ item_1.front }}<strong>{{ item_1.middle }}</strong>{{ item_1.end }}
+                                </li><br/>
+                            {% endfor %}
+                        </ul>
+            {% endfor %}
+    </div><br/><br/>
+    <div class = 'final'>
+        {% for key in list_2 %}
+            <a href="?keywords={{ keywords }}&name={{ name }}&born={{ born }}&died={{ died }}&almamater={{ almamater }}&page={{ key }}" class = 'page'>{{ key }}</a>
+        {% endfor %}
+    </div><br/><br/><br/><br/><br/><br/>
+</body>
+</html>

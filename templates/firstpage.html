@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" href="{% static 'firstnew.css' %}">
+</head>
+<body>
+<div id = 'div_large'>
+    <form method="get" action="/search/" id="table">
+        <label id=title>Search</label><br/><br/>
+        <div class="line"><label for = "keywords" >Keywords</label>
+            <input type="text" id = keywords name="keywords" value=""></div><br/>
+        <div class="line"><label for = "name" >Name</label>
+            <input type="text" id = name name="name" value=""></div><br/>
+        <div class="line"><label for = "born">Born</label>
+            <input type="text" id = born name="born" value=""></div><br/>
+        <div class="line"><label for = "died">Died</label>
+            <input type="text" id = died name="died" value=""></div><br/>
+        <div class="line"><label for = "almamater">Alma Mater</label>
+            <input type="text" id = almamater name="almamater" value=""></div><br/>
+        <input type="submit" id = button name="search" value="Search"><br/>
+    </form>
+</div>
+</body>
+</html>

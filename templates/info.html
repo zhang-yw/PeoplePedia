@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}</title>
+    <link rel="stylesheet" href="{% static 'infobox.css' %}">
+</head>
+<body>
+<br/><br/>
+    <label id = 'name'>{{ name }}</label><br/><br/>
+    {% if imgsrc %}
+    <img src={{ imgsrc }} id = 'img'><br/><br/><br/><br/>
+    {% endif %}
+    <div>
+    <table class = 'bordered'>
+        {% for key,value in list.items %}
+            <tr>
+            <th>
+                {{ key }}
+            </th>
+            <td>
+                {{ value }}
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>
